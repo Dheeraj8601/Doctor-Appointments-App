@@ -1,0 +1,75 @@
+{% extends "templates/web.html" %}
+
+{% block style %}
+<style>
+    /* Add background color */
+    body {
+        background-color: #f8f9fa; /* Light gray background */
+    }
+
+    /* Reduce size of subscript */
+    sub {
+        font-size: smaller;
+    }
+
+    /* Style headings */
+    h1 {
+        font-size: 36px; /* Larger font size */
+        color: #343a40; /* Dark gray text color */
+        margin-bottom: 20px; /* Add some bottom margin */
+    }
+
+    h5.card-title {
+        font-size: 20px; /* Increase font size for card titles */
+        color: #007bff; /* Blue text color */
+    }
+
+    .card {
+        margin-bottom: 20px; /* Add space between cards */
+        border-radius: 10px; /* Rounded corners for cards */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow to cards */
+    }
+
+    /* Style badge */
+    .badge {
+        font-size: 14px; /* Reduce font size */
+    }
+
+    /* Style button */
+    .btn-info {
+        background-color: #17a2b8; /* Blue color */
+        border-color: #17a2b8; /* Blue color */
+    }
+
+    .btn-info:hover {
+        background-color: #138496; /* Darker blue color on hover */
+        border-color: #117a8b; /* Darker blue color on hover */
+    }
+</style>
+{% endblock %}
+
+{% block page_content %}
+<h1>{{ title }}<sub>Clinic</sub></h1>
+<p><strong>Address</strong></p>
+<p>{{doc.address}}</p>
+<p><strong>Phone</strong></p>
+<p>{{doc.contact_number}}</p>
+
+{% set doctor = frappe.get_doc("Doctor",doc.doctor) %}
+<p><strong>Doctor </strong><span class="badge {{ 'badge-success' if doc.doctor_in else 'badge-secondary' }}">{{'IN' if doc.doctor_in else 'OUT'}}</span></p>
+<p>{{doctor.full_name}},{{doctor.speaciality}}</p>
+
+<p><strong>Timings</strong></p>
+{% set shifts = frappe.get_list("Schedule Shift",filters={"Clinic":doc.name},fields=["title"]) %}
+<ul>
+    {% for shift in shifts %}
+        <li>{{ shift.title }}</li>
+    {% endfor %}
+</ul>
+
+<a href="/book-appointment/new?clinic={{  doc.name  }}" class="btn btn-info">Book Appointment</a>
+
+<script>
+    
+    </script>
+{% endblock %}

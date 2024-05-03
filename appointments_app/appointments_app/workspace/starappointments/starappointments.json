@@ -1,0 +1,43 @@
+{
+ "charts": [
+  {
+   "chart_name": "Appointments Per Day",
+   "label": "Appointments Per Day"
+  }
+ ],
+ "content": "[{\"id\":\"bMTVzBb5ys\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">StarAppointments</span>\",\"col\":12}},{\"id\":\"VSsLXZXr2h\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Published Clinics\",\"col\":3}},{\"id\":\"aRtZ7znINe\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Appointments Per Day\",\"col\":12}}]",
+ "creation": "2024-04-11 13:25:34.302026",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "non-profit",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "StarAppointments",
+ "links": [],
+ "modified": "2024-04-11 13:57:17.172764",
+ "modified_by": "Administrator",
+ "module": "Appointments App",
+ "name": "StarAppointments",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 39.0,
+ "shortcuts": [
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "format": "{}",
+   "label": "Published Clinics",
+   "link_to": "Clinic",
+   "stats_filter": "[[\"Clinic\",\"is_published\",\"=\",1,false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "StarAppointments"
+}
